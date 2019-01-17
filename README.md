@@ -40,16 +40,17 @@
 The following instructions will help you to set up an environment for development and testing:
 
 1. Download [AutomationToolbox-master.zip](https://github.com/GitUser219/AutomationToolbox/archive/master.zip) and extract all of the files to some location on your machine
-2. Ensure that you have installed a minimum [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) version of 1.8.0
-3. Download and install [Eclipse IDE for Java Developers](https://www.eclipse.org/downloads/)
-4. Run Eclipse and click File, New, Java Project
-5. Name the project Automation Toolbox, click Next, click Create new source folder, name it resources, and click Finish
-6. Right click on the Automation Toolbox project, click Build Path, Add External Archives, navigate to Automation Toolbox\Assets\External Jar Files and select all of the files in this location
-7. Right click src, select New, then Package, name the package jn.automation, click Finish
-8. Copy AutomationToolbox.java from Automation Toolbox\Assets to the jn.automation package
-9. Right click res, select New, then Package, name the package imgs, click Finish
-10. Copy all of the files in Automation Toolbox\Assets\Images except for black_icon.ico to the imgs package
-11. Double click on the AutomationToolbox.java to open it in the IDE and click the green and white play button to run the program
+2. Extract all of the files from External Jar Files.zip, Images.zip, and Test Files.zip to some location on your machine
+3. Ensure that you have installed a minimum [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) version of 1.8.0
+4. Download and install [Eclipse IDE for Java Developers](https://www.eclipse.org/downloads/)
+5. Run Eclipse and click File, New, Java Project
+6. Name the project Automation Toolbox, click Next, click Create new source folder, name it resources, and click Finish
+7. Right click on the Automation Toolbox project, click Build Path, Add External Archives, External Jar Files and select all of the files in this location
+8. Right click src, select New, then Package, name the package jn.automation, click Finish
+9. Copy AutomationToolbox.java from Automation Toolbox\Assets to the jn.automation package
+10. Right click res, select New, then Package, name the package imgs, click Finish
+11. Copy all of the files in Automation Toolbox\Assets\Images except for black_icon.ico to the imgs package
+12. Double click on the AutomationToolbox.java to open it in the IDE and click the green and white play button to run the program
 
 ### Publishing Changes
 
