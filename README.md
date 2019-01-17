@@ -44,13 +44,11 @@ The following instructions will help you to set up an environment for developmen
 3. Ensure that you have installed a minimum [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) version of 1.8.0
 4. Download and install [Eclipse IDE for Java Developers](https://www.eclipse.org/downloads/)
 5. Run Eclipse and click File, New, Java Project
-6. Name the project Automation Toolbox, click Next, click Create new source folder, name it resources, and click Finish
+6. Name the project Automation Toolbox, click Next, click Create new source folder, name it images, and click Finish
 7. Right click on the Automation Toolbox project, click Build Path then Add External Archives, and add all of the files that you extracted from External Jar Files.zip
-8. Right click src, select New, then Package, name the package jn.automation, click Finish
-9. Copy AutomationToolbox.java from Automation Toolbox\Assets to the jn.automation package
-10. Right click res, select New, then Package, name the package imgs, click Finish
-11. Copy all of the files in Automation Toolbox\Assets\Images except for black_icon.ico to the imgs package
-12. Double click on the AutomationToolbox.java to open it in the IDE and click the green and white play button to run the program
+8. Drag AutomationToolbox.java to the automation.toolbox package and click OK
+9. Drag all of the files from Images.zip, except for black_icon.ico, to the images package and click OK
+10. Double click on the AutomationToolbox.java to open it in the IDE and click the green and white play button to run the program
 
 ### Publishing Changes
 
