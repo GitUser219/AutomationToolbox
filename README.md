@@ -33,7 +33,7 @@ The Automation Toolbox.exe requires a minimum Java Runtime Environment version o
 
 ### Built With
 
-* [Eclipse](https://www.eclipse.org/photon/) -  An integrated development environment (IDE)
+* [Eclipse](https://www.eclipse.org) - An integrated development environment (the most widely used Java IDE)
 * [Apache POI](https://poi.apache.org/) - Java libraries for reading and writing files in Microsoft Office formats, such as Word, PowerPoint and Excel
 * [iText PDF](https://itextpdf.com/) - A library for creating and manipulating PDF files in Java and .NET
 * [openCSV](https://sourceforge.net/projects/opencsv/) - A Simple CSV Parser for Java under a commercial-friendly Apache 2.0 license
