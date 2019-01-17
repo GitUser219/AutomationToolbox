@@ -39,7 +39,7 @@
 
 The following instructions will help you to set up an environment for development and testing:
 
-1. Download [AutomationToolbox.zip](https://github.com/GitUser219/AutomationToolbox/archive/master.zip) and extract all of the files to some location on your machine
+1. Download [AutomationToolbox-master.zip](https://github.com/GitUser219/AutomationToolbox/archive/master.zip) and extract all of the files to some location on your machine
 2. Ensure that you have installed a minimum [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) version of 1.8.0
 3. Download and install [Eclipse IDE for Java Developers](https://www.eclipse.org/downloads/)
 4. Run Eclipse and click File, New, Java Project
