@@ -27,10 +27,6 @@
 7. Click Select the file destination and choose where you would like to save the output
 8. Click Generate the file and Report.xlsx will be created in the file destination that you chose
 
-### Prerequisites
-
-The Automation Toolbox.exe requires a minimum Java Runtime Environment version of 1.8.0. If you do not have this installed, click [here](https://java.com/en/) to install it.
-
 ### Built With
 
 * [Eclipse](https://www.eclipse.org) - An integrated development environment (the most widely used Java IDE)
@@ -44,15 +40,16 @@ The Automation Toolbox.exe requires a minimum Java Runtime Environment version o
 The following instructions will help you to set up an environment for development and testing:
 
 1. Download [Automation Toolbox.zip](https://github.com/GitUser219/AutomationToolbox) and extract all of the files to some location on your machine
-2. Ensure that you have installed a minimum [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) version of 1.8.0 then download and install [Eclipse IDE for Java Developers](https://www.eclipse.org/downloads/)
-3. Open Eclipse Java IDE and click File, New, Java Project
-4. Name the project Automation Toolbox, click Next, click Create new source folder, name it res, and click Finish
-5. Right click on the Automation Toolbox project, click Build Path, Add External Archives, navigate to Automation Toolbox\Assets\External Jar Files and select all of the files in this location
-6. Right click src, select New, then Package, name the package jn.automation, click Finish
-7. Copy AutomationToolbox.java from Automation Toolbox\Assets to the jn.automation package
-8. Right click res, select New, then Package, name the package imgs, click Finish
-9. Copy all of the files in Automation Toolbox\Assets\Images except for black_icon.ico to the imgs package
-10. Double click on the AutomationToolbox.java to open it in the IDE and click the green and white play button to run the program
+2. Ensure that you have installed a minimum [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) version of 1.8.0
+3. Download and install [Eclipse IDE for Java Developers](https://www.eclipse.org/downloads/)
+4. Run Eclipse and click File, New, Java Project
+5. Name the project Automation Toolbox, click Next, click Create new source folder, name it res, and click Finish
+6. Right click on the Automation Toolbox project, click Build Path, Add External Archives, navigate to Automation Toolbox\Assets\External Jar Files and select all of the files in this location
+7. Right click src, select New, then Package, name the package jn.automation, click Finish
+8. Copy AutomationToolbox.java from Automation Toolbox\Assets to the jn.automation package
+9. Right click res, select New, then Package, name the package imgs, click Finish
+10. Copy all of the files in Automation Toolbox\Assets\Images except for black_icon.ico to the imgs package
+11. Double click on the AutomationToolbox.java to open it in the IDE and click the green and white play button to run the program
 
 ### Publishing Changes
 
