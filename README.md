@@ -6,13 +6,11 @@
 
 1. Run Automation Toolbox.exe
 2. Click the Preventative Maintenance PDF Creation button
-3. Click Select spreadsheet
-4. Navigate to Automation Toolbox\Assets\Test Files and select Spreadsheet.xlsx
-5. Click Select images location
-6. Navigate to Automation Toolbox\Assets\Test Files and click Open
-7. Click Select destination and choose where you would like to save the output
-8. Type a password to protect the PDF with
-9. Click Generate the file and the PDF will be created in the file destination that you chose
+3. Click Select spreadsheet and choose Spreadsheet.xlsx from Test Files.zip
+4. Click Select images location and choose the location of the files from Test Files.zip
+5. Click Select destination and choose where you would like to save the output
+6. Type a password to protect the PDF with
+7. Click Generate the file and the PDF will be created in the file destination that you chose
 
 ## A preventative maintenance report creation tool
 
@@ -20,12 +18,10 @@
 
 1. Run Automation Toolbox.exe
 2. Click the Preventative Maintenance Report Creation button
-3. Click Select the detail report
-4. Navigate to Automation Toolbox\Assets\Test Files and select Detail Report.csv
-5. Click Select the summary report
-6. Navigate to Automation Toolbox\Assets\Test Files and select Summary Report.csv
-7. Click Select the file destination and choose where you would like to save the output
-8. Click Generate the file and Report.xlsx will be created in the file destination that you chose
+3. Click Select the detail report and choose Detail Report.csv from Test Files.zip
+4. Click Select the summary report and choose Summary Report.csv from Test Files.zip
+5. Click Select the file destination and choose where you would like to save the output
+6. Click Generate the file and Report.xlsx will be created in the file destination that you chose
 
 ### Built With
 
@@ -50,27 +46,28 @@ The following instructions will help you to set up an environment for developmen
 9. Drag AutomationToolbox.java to the automation.toolbox package and click OK
 10. Right click resources, click New then Package, name it images, click Finish
 11. Drag all of the files from Images.zip, except for black_icon.ico, to the images package and click OK
-12. The environment is now set up; right click AutomationToolbox.java (in Eclipse) and click Run As then Java Application ro run the program
+12. The environment is now set up; right click AutomationToolbox.java (in Eclipse) and click Run As then Java Application to run the program
 
 ### Publishing Changes
 
 If you make a change to the code and you would like to create a new executable file, follow these steps:
 
 1. After running the program with no errors, right click on the Automation Toolbox project and click Export
-2. Select Runnable JAR file in the Java folder and set the Launch configuration to AutomationToolbox - Automation Toolbox
-3. Choose the destination for the JAR file and set the file name to Automation Toolbox.jar, click Finish twice
-4. If there were no issues, you will have Automation Toolbox.jar saved on your computer
+2. Select Runnable JAR file in the Java folder and set the Launch configuration to AutomationToolbox - YOUR_PROJECT_NAME
+3. Choose the destination for the JAR file and set the file name to AutomationToolbox.jar, click Finish twice
+4. If there were no issues, you will have AutomationToolbox.jar saved on your computer
 5. Install and run the [Launch4j Executable Wrapper](https://sourceforge.net/projects/launch4j/) tool
-6. Basic tab
-   - Output file: choose the file destination and set the file name to Automation Toolbox.exe
-   - Jar: select the Automation Toolbox.jar file
-   - Icon: select Automation Toolbox\Assets\Images\black_icon.ico
-7. JRE tab
+6. Make the following changes in the Basic tab of Launch4j
+   - Output file: choose the file destination and set the file name to AutomationToolbox.exe
+   - Jar: select the AutomationToolbox.jar file
+   - Icon: select black_icon.ico from Images.zip
+7. Make the following changes in the JRE tab of Launch4j
    - Min JRE version: 1.8.0
-8. Click Build wrapper (gear icon)
-9. Save a configuration file and your executable will be created
-10. You can delete the configuration file once the executable has been created
+8. Click Build wrapper (gear icon in the upper left-hand corner)
+9. Save a configuration file with any name and AutomationToolbox.exe will be created
+10. You can delete AutomationToolbox.jar and the configuration file once the executable has been created
+11. Run AutomationToolbox.exe to test that it is working properly
 
 ### Authors
 
-* **Jonathan Nowak** - *Initial work*
+* **Jonathan Nowak** - *Initial work* - **Last Revised 1/17/19**
