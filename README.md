@@ -30,7 +30,7 @@ A collection of two tools: a preventative maintenance PDF creation tool and a pr
 * [openCSV](https://sourceforge.net/projects/opencsv/) - A Simple CSV Parser for Java under a commercial-friendly Apache 2.0 license
 * [Launch4j](http://launch4j.sourceforge.net/) - Cross-platform Java executable wrapper for creating lightweight Windows native executable files
 
-### Development Environment
+### Development
 
 The following instructions will help you to set up an environment for development and testing:
 
@@ -47,7 +47,7 @@ The following instructions will help you to set up an environment for developmen
 11. Drag all of the files from Images.zip, except for black_icon.ico, to the images package and click OK
 12. The environment is now set up; right click AutomationToolbox.java (in Eclipse) and click Run As then Java Application to run the program
 
-### Publishing Changes
+### Deployment
 
 If you make a change to the code and you would like to create a new executable file, follow these steps:
 
