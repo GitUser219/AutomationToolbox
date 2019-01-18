@@ -2,9 +2,7 @@
 
 A collection of two tools: a preventative maintenance PDF creation tool and a preventative maintenance report creation tool
 
-### A preventative maintenance PDF creation tool
-
-**How to use this tool:**
+**Using the preventative maintenance PDF creation tool**
 
 1. Run Automation Toolbox.exe
 2. Click the Preventative Maintenance PDF Creation button
@@ -14,9 +12,7 @@ A collection of two tools: a preventative maintenance PDF creation tool and a pr
 6. Type a password to protect the PDF with
 7. Click Generate the file and the PDF will be created in the file destination that you chose
 
-### A preventative maintenance report creation tool
-
-**How to use this tool:**
+**Using the preventative maintenance report creation tool**
 
 1. Run Automation Toolbox.exe
 2. Click the Preventative Maintenance Report Creation button
@@ -27,6 +23,7 @@ A collection of two tools: a preventative maintenance PDF creation tool and a pr
 
 ### Built With
 
+* [Java](https://www.java.com/en/) - a general-purpose computer-programming language that is concurrent, class-based, object-oriented, and specifically designed to have as few implementation dependencies as possible
 * [Eclipse](https://www.eclipse.org) - An integrated development environment (the most widely used Java IDE)
 * [Apache POI](https://poi.apache.org/) - Java libraries for reading and writing files in Microsoft Office formats, such as Word, PowerPoint and Excel
 * [iText PDF](https://itextpdf.com/) - A library for creating and manipulating PDF files in Java and .NET
