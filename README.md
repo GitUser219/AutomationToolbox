@@ -21,6 +21,10 @@ A collection of two tools: a preventative maintenance PDF creation tool and a pr
 5. Click Select the file destination and choose where you would like to save the output
 6. Click Generate the file and Report.xlsx will be created in the file destination that you chose
 
+### Prerequisites
+
+A minimum Java Runtime Environment of 1.8.0 is required to run AutomationToolbox.exe
+
 ### Built With
 
 * [Java](https://www.java.com/en/) - a general-purpose computer-programming language that is concurrent, class-based, object-oriented, and specifically designed to have as few implementation dependencies as possible
