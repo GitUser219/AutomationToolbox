@@ -73,4 +73,4 @@ If you make a change to the code and you would like to create a new executable f
 
 ### Authors
 
-* **Jonathan Nowak** - *Initial work* - **Last Revised 1/17/19**
+* **Jonathan Nowak** - [GitUser219](https://github.com/GitUser219) - **Last Revised 1/17/19**
