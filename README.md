@@ -40,15 +40,17 @@
 The following instructions will help you to set up an environment for development and testing:
 
 1. Download [AutomationToolbox-master.zip](https://github.com/GitUser219/AutomationToolbox/archive/master.zip) and extract all of the files to some location on your machine
-2. Extract all of the files from External Jar Files.zip, Images.zip, and Test Files.zip to some location on your machine
+2. Extract all of the files from External Jar Files.zip and Images.zip to some location on your machine
 3. Ensure that you have installed a minimum [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) version of 1.8.0
 4. Download and install [Eclipse IDE for Java Developers](https://www.eclipse.org/downloads/)
 5. Run Eclipse and click File, New, Java Project
-6. Name the project whatever you like, click Next, click Create new source folder, name it images, and click Finish
+6. Name the project whatever you like, click Next, click Create new source folder, name it resources, and click Finish twice
 7. Right click on the project, click Build Path then Add External Archives, and add all of the files that you extracted from External Jar Files.zip
-8. Drag AutomationToolbox.java to the automation.toolbox package and click OK
-9. Drag all of the files from Images.zip, except for black_icon.ico, to the images package and click OK
-10. Double click on the AutomationToolbox.java to open it in the IDE and click the green and white play button to run the program
+8. Right click src, click New then Package, name it automation.toolbox, click Finish
+9. Drag AutomationToolbox.java to the automation.toolbox package and click OK
+10. Right click resources, click New then Package, name it images, click Finish
+11. Drag all of the files from Images.zip, except for black_icon.ico, to the images package and click OK
+12. The environment is now set up; right click AutomationToolbox.java (in Eclipse) and click Run As then Java Application ro run the program
 
 ### Publishing Changes
 
