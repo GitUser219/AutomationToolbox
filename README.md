@@ -8,7 +8,7 @@ A minimum [Java Runtime Environment](http://www.oracle.com/technetwork/java/java
 
 ### Using the preventative maintenance PDF creation tool
 
-1. Run Automation Toolbox.exe
+1. Run AutomationToolbox.exe
 2. Click the Preventative Maintenance PDF Creation button
 3. Click Select spreadsheet and choose Spreadsheet.xlsx from Test Files.zip
 4. Click Select images location and choose the location of the files from Test Files.zip
