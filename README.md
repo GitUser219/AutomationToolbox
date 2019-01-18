@@ -56,7 +56,7 @@ If you make a change to the code and you would like to create a new executable f
 
 1. After running the program with no errors, right click on the Automation Toolbox project and click Export
 2. Select Runnable JAR file in the Java folder and set the Launch configuration to AutomationToolbox - Automation Toolbox
-3. Choose the destination for the JAR file and set the file name to Automation Toolbox.jar, click Finish
+3. Choose the destination for the JAR file and set the file name to Automation Toolbox.jar, click Finish twice
 4. If there were no issues, you will have Automation Toolbox.jar saved on your computer
 5. Install and run the [Launch4j Executable Wrapper](https://sourceforge.net/projects/launch4j/) tool
 6. Basic tab
