@@ -1,6 +1,8 @@
 # Automation Toolbox
 
-## A preventative maintenance PDF creation tool
+A collection of two tools: a preventative maintenance PDF creation tool and a preventative maintenance report creation tool
+
+### A preventative maintenance PDF creation tool
 
 **How to use this tool:**
 
@@ -12,7 +14,7 @@
 6. Type a password to protect the PDF with
 7. Click Generate the file and the PDF will be created in the file destination that you chose
 
-## A preventative maintenance report creation tool
+### A preventative maintenance report creation tool
 
 **How to use this tool:**
 
