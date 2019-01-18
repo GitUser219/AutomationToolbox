@@ -55,26 +55,26 @@ public class AutomationToolbox {
 	private static String fileDestination;
 
 	public static void main(String[] args) {
-		ImageIcon good = new ImageIcon(ClassLoader.getSystemResource("imgs/good.png"));
-		ImageIcon bad = new ImageIcon(ClassLoader.getSystemResource("imgs/bad.png"));
-		ImageIcon redIcon = new ImageIcon(ClassLoader.getSystemResource("imgs/red_icon.png"));
-		ImageIcon greenIcon = new ImageIcon(ClassLoader.getSystemResource("imgs/green_icon.png"));
+		ImageIcon ready = new ImageIcon(ClassLoader.getSystemResource("images/ready.png"));
+		ImageIcon notReady = new ImageIcon(ClassLoader.getSystemResource("images/not_ready.png"));
+		ImageIcon redIcon = new ImageIcon(ClassLoader.getSystemResource("images/red_icon.png"));
+		ImageIcon greenIcon = new ImageIcon(ClassLoader.getSystemResource("images/green_icon.png"));
 		
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
 			String message = "User interface not supported.";
-			JOptionPane.showMessageDialog(null, message, "Failure", 0, bad);
+			JOptionPane.showMessageDialog(null, message, "Failure", 0, notReady);
 		}
 		
-		Dimension s = Toolkit.getDefaultToolkit().getScreenSize();
-
+		Font primaryFont = new Font("", Font.PLAIN, 16);
 		JFrame mainFrame = new JFrame();
-		mainFrame.setIconImage(new ImageIcon(ClassLoader.getSystemResource("imgs/black_icon.png")).getImage());
+		mainFrame.setIconImage(new ImageIcon(ClassLoader.getSystemResource("images/black_icon.png")).getImage());
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setTitle("Automation Toolbox");
-		mainFrame.setSize(380, 170);
-		mainFrame.setLocation(s.width / 2 - 380 / 2, s.height / 2 - 170 / 2);
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		mainFrame.setLocation(screenSize.width / 2 - 220, screenSize.height / 2 - 90);
+		mainFrame.setSize(440, 180);
 		mainFrame.setLayout(null);
 
 		JLabel autoPdfIcon = new JLabel(new ImageIcon(redIcon.getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
@@ -84,8 +84,6 @@ public class AutomationToolbox {
 		JLabel autoReportIcon = new JLabel(new ImageIcon(greenIcon.getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
 		autoReportIcon.setBounds(20, 70, 30, 30);
 		mainFrame.add(autoReportIcon);
-		
-		Font primaryFont = new Font("", Font.PLAIN, 12);
 
 		JButton pdfButton = new JButton(new AbstractAction("pdfAction") {
 			private static final long serialVersionUID = 1L;
@@ -99,34 +97,34 @@ public class AutomationToolbox {
 				fileDestination = "";
 				
 				JFrame pdfFrame = new JFrame();
-				pdfFrame.setIconImage(new ImageIcon(ClassLoader.getSystemResource("imgs/red_icon.png")).getImage());
+				pdfFrame.setIconImage(new ImageIcon(ClassLoader.getSystemResource("images/red_icon.png")).getImage());
 				pdfFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				pdfFrame.setTitle("PDF Creation");
-				pdfFrame.setSize(330, 340);
-				pdfFrame.setLocation(s.width / 2 - 330 / 2, s.height / 2 - 340 / 2);
+				pdfFrame.setLocation(screenSize.width / 2 - 190, screenSize.height / 2 - 170);
+				pdfFrame.setSize(380, 340);
 				pdfFrame.setLayout(null);
 
-				JLabel spreadsheetIcon = new JLabel(bad);
-				spreadsheetIcon.setBounds(260, 20, 30, 30);
+				JLabel spreadsheetIcon = new JLabel(notReady);
+				spreadsheetIcon.setBounds(305, 20, 30, 30);
 				pdfFrame.add(spreadsheetIcon);
 				
-				JLabel imagesFolderIcon = new JLabel(bad);
-				imagesFolderIcon.setBounds(260, 70, 30, 30);
+				JLabel imagesFolderIcon = new JLabel(notReady);
+				imagesFolderIcon.setBounds(305, 70, 30, 30);
 				pdfFrame.add(imagesFolderIcon);
 				
-				JLabel fileDestinationIcon = new JLabel(bad);
-				fileDestinationIcon.setBounds(260, 120, 30, 30);
+				JLabel fileDestinationIcon = new JLabel(notReady);
+				fileDestinationIcon.setBounds(305, 120, 30, 30);
 				pdfFrame.add(fileDestinationIcon);
 
 				JLabel passwordLabel = new JLabel("Password protect the file");
 				passwordLabel.setFont(primaryFont);
 				passwordLabel.setHorizontalAlignment(JLabel.CENTER);
-				passwordLabel.setBounds(17, 160, 270, 30);
+				passwordLabel.setBounds(17, 160, 315, 30);
 				pdfFrame.add(passwordLabel);
 				
 				JTextField passwordField = new JTextField();
 				passwordField.setFont(primaryFont);
-				passwordField.setBounds(20, 190, 270, 30);
+				passwordField.setBounds(20, 190, 315, 30);
 				pdfFrame.add(passwordField);
 				
 				ArrayList<String[]> xlsxData = new ArrayList<String[]>();
@@ -143,20 +141,20 @@ public class AutomationToolbox {
 						if (xlsxFileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 							if (xlsxFileChooser.getSelectedFile().exists()) {
 								xlsxFile = xlsxFileChooser.getSelectedFile();
-								spreadsheetIcon.setIcon(good);
+								spreadsheetIcon.setIcon(ready);
 								
 								if (!imagesLocation.equals("") && !fileDestination.equals("")) {
 									generateFileButton.setEnabled(true);
 								}
 							} else {
-								JOptionPane.showMessageDialog(null, "Invalid selection.", "Failure", 0, bad);
+								JOptionPane.showMessageDialog(null, "Invalid selection.", "Failure", 0, notReady);
 							}
 						}
 					}
 				});
 				xlsxButton.setText("Select spreadsheet");
 				xlsxButton.setFont(primaryFont);
-				xlsxButton.setBounds(20, 20, 220, 30);
+				xlsxButton.setBounds(20, 20, 265, 30);
 				pdfFrame.add(xlsxButton);
 				
 				JButton imagesButton = new JButton(new AbstractAction("imagesAction") {
@@ -171,20 +169,20 @@ public class AutomationToolbox {
 						if (imagesFolderChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 							if (imagesFolderChooser.getSelectedFile().exists()) {
 								imagesLocation = imagesFolderChooser.getSelectedFile().getPath() + "\\";
-								imagesFolderIcon.setIcon(good);
+								imagesFolderIcon.setIcon(ready);
 	
 								if (xlsxFile.exists() && !fileDestination.equals("")) {
 									generateFileButton.setEnabled(true);
 								}
 							} else {
-								JOptionPane.showMessageDialog(null, "Invalid selection.", "Failure", 0, bad);
+								JOptionPane.showMessageDialog(null, "Invalid selection.", "Failure", 0, notReady);
 							}
 						}
 					}
 				});
 				imagesButton.setText("Select images location");
 				imagesButton.setFont(primaryFont);
-				imagesButton.setBounds(20, 70, 220, 30);
+				imagesButton.setBounds(20, 70, 265, 30);
 				pdfFrame.add(imagesButton);
 
 				JButton destinationButton = new JButton(new AbstractAction("destinationAction") {
@@ -198,21 +196,21 @@ public class AutomationToolbox {
 
 						if (destinationChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 							if (destinationChooser.getSelectedFile().exists()) {
-								fileDestinationIcon.setIcon(good);
+								fileDestinationIcon.setIcon(ready);
 								fileDestination = destinationChooser.getSelectedFile().getPath() + "\\";
 	
 								if (xlsxFile.exists() && !imagesLocation.equals("")) {
 									generateFileButton.setEnabled(true);
 								}
 							} else {
-								JOptionPane.showMessageDialog(null, "Invalid selection.", "Failure", 0, bad);
+								JOptionPane.showMessageDialog(null, "Invalid selection.", "Failure", 0, notReady);
 							}
 						}
 					}
 				});
 				destinationButton.setText("Select destination");
 				destinationButton.setFont(primaryFont);
-				destinationButton.setBounds(20, 120, 220, 30);
+				destinationButton.setBounds(20, 120, 265, 30);
 				pdfFrame.add(destinationButton);
 
 				generateFileButton = new JButton(new AbstractAction("generateFileAction") {
@@ -225,7 +223,7 @@ public class AutomationToolbox {
 						if (password.equals("")) {
 							String title = "Password required";
 							String body = "A password is required to protect the file.";
-							JOptionPane.showMessageDialog(null, body, title, 0, bad);
+							JOptionPane.showMessageDialog(null, body, title, 0, notReady);
 						} else {
 							try {
 								FileInputStream inputStream = new FileInputStream(xlsxFile);
@@ -271,7 +269,7 @@ public class AutomationToolbox {
 										+ "4. The spreadsheet is not open in another program\"\n\n"
 										+ "If you continue to have issues, contact Jonathan Nowak at\n"
 										+ "jnowak@quantumcrossings.com or (217) 776-9115";;
-								JOptionPane.showMessageDialog(null, body, "Failure", 0, bad);
+								JOptionPane.showMessageDialog(null, body, "Failure", 0, notReady);
 							}
 
 							String fileName = xlsxData.get(1)[22] + ".pdf";
@@ -288,7 +286,7 @@ public class AutomationToolbox {
 									String[] row = xlsxData.get(j);
 									pdf.newPage();
 									PdfContentByte cb = writer.getDirectContentUnder();
-									Image background = Image.getInstance(ClassLoader.getSystemResource("imgs/background.jpg"));
+									Image background = Image.getInstance(ClassLoader.getSystemResource("images/background.jpg"));
 									background.scaleAbsolute(840.0f, 595.0f);
 									background.setAbsolutePosition(0, 0);
 									cb.addImage(background);
@@ -374,7 +372,7 @@ public class AutomationToolbox {
 												
 												cb.moveText(X, Y);
 												cb.showText("X");
-											} else 
+											} else {
 												cb.moveText(X, Y);
 												cb.showText(row[i]);
 											}
@@ -402,34 +400,34 @@ public class AutomationToolbox {
 											+ ".pdf was successfully created, but there are images missing.\n\n"
 											+ "Check " + xlsxData.get(1)[22]
 											+ " PDF Creation Log.txt for more information.";
-									JOptionPane.showMessageDialog(null, body, "Success", 0, good);
+									JOptionPane.showMessageDialog(null, body, "Success", 0, ready);
 								} else {
 									pdfFrame.setVisible(false);
 									pdfFrame.dispose();
 									
 									String body = xlsxData.get(1)[22] + ".pdf was successfully created.";
-									JOptionPane.showMessageDialog(null, body, "Success", 0, good);
+									JOptionPane.showMessageDialog(null, body, "Success", 0, ready);
 								}
 							} catch (Exception ex) {
 								String title = "Failed to write to file: " + fileName;
 								String body = "Make sure that " + fileName + " is not open in another program.\"\n\n"
 										+ "If you continue to have issues, contact Jonathan Nowak at\n"
 										+ "jnowak@quantumcrossings.com or (217) 776-9115";
-								JOptionPane.showMessageDialog(null, body, title, 0, bad);
+								JOptionPane.showMessageDialog(null, body, title, 0, notReady);
 							}
 						}
 					}
 				});
 				generateFileButton.setText("Generate the file");
 				generateFileButton.setFont(primaryFont);
-				generateFileButton.setBounds(20, 240, 270, 30);
+				generateFileButton.setBounds(20, 240, 315, 30);
 				generateFileButton.setEnabled(false);
 				pdfFrame.add(generateFileButton);
 				pdfFrame.setVisible(true);
 			}
 		});
 		pdfButton.setText("Preventative Maintenance PDF Creation");
-		pdfButton.setBounds(70, 20, 270, 30);
+		pdfButton.setBounds(70, 20, 330, 30);
 		pdfButton.setFont(primaryFont);
 		pdfButton.setSelected(false);
 		mainFrame.add(pdfButton);
@@ -444,23 +442,23 @@ public class AutomationToolbox {
 				fileDestination = "";
 				
 				JFrame reportFrame = new JFrame();
-				reportFrame.setIconImage(new ImageIcon(ClassLoader.getSystemResource("imgs/green_icon.png")).getImage());
+				reportFrame.setIconImage(new ImageIcon(ClassLoader.getSystemResource("images/green_icon.png")).getImage());
 				reportFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				reportFrame.setTitle("Report Creation");
-				reportFrame.setLocation(s.width / 2 - 340 / 2, s.height / 2 - 270 / 2);
-				reportFrame.setSize(340, 270);
+				reportFrame.setLocation(screenSize.width / 2 - 200, screenSize.height / 2 - 135);
+				reportFrame.setSize(400, 270);
 				reportFrame.setLayout(null);
 
-				JLabel detailReportIcon = new JLabel(bad);
-				detailReportIcon.setBounds(270, 20, 30, 30);
+				JLabel detailReportIcon = new JLabel(notReady);
+				detailReportIcon.setBounds(325, 20, 30, 30);
 				reportFrame.add(detailReportIcon);
 
-				JLabel summaryReportIcon = new JLabel(bad);
-				summaryReportIcon.setBounds(270, 70, 30, 30);
+				JLabel summaryReportIcon = new JLabel(notReady);
+				summaryReportIcon.setBounds(325, 70, 30, 30);
 				reportFrame.add(summaryReportIcon);
 
-				JLabel fileDestinationIcon = new JLabel(bad);
-				fileDestinationIcon.setBounds(270, 120, 30, 30);
+				JLabel fileDestinationIcon = new JLabel(notReady);
+				fileDestinationIcon.setBounds(325, 120, 30, 30);
 				reportFrame.add(fileDestinationIcon);
 
 				JButton detailReportSelectButton = new JButton(new AbstractAction("detailReportSelectAction") {
@@ -475,19 +473,19 @@ public class AutomationToolbox {
 						if (detailReportChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 							if (detailReportChooser.getSelectedFile().exists()) {
 								detailReportFilePath = detailReportChooser.getSelectedFile().getPath();
-								detailReportIcon.setIcon(good);
+								detailReportIcon.setIcon(ready);
 	
 								if (!summaryReportFilePath.equals("") && !fileDestination.equals("")) {
 									generateFileButton.setEnabled(true);
 								}
 							} else {
-								JOptionPane.showMessageDialog(null, "Invalid selection.", "Failure", 0, bad);
+								JOptionPane.showMessageDialog(null, "Invalid selection.", "Failure", 0, notReady);
 							}
 						}
 					}
 				});
 				detailReportSelectButton.setText("Select the detail report");
-				detailReportSelectButton.setBounds(20, 20, 230, 30);
+				detailReportSelectButton.setBounds(20, 20, 285, 30);
 				detailReportSelectButton.setFont(primaryFont);
 				reportFrame.add(detailReportSelectButton);
 
@@ -503,19 +501,19 @@ public class AutomationToolbox {
 						if (summaryReportChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 							if (summaryReportChooser.getSelectedFile().exists()) {
 								summaryReportFilePath = summaryReportChooser.getSelectedFile().getPath();
-								summaryReportIcon.setIcon(good);
+								summaryReportIcon.setIcon(ready);
 	
 								if (!detailReportFilePath.equals("") && !fileDestination.equals("")) {
 									generateFileButton.setEnabled(true);
 								}
 							} else {
-								JOptionPane.showMessageDialog(null, "Invalid selection.", "Failure", 0, bad);
+								JOptionPane.showMessageDialog(null, "Invalid selection.", "Failure", 0, notReady);
 							}
 						}
 					}
 				});
 				summaryReportSelectButton.setText("Select the summary report");
-				summaryReportSelectButton.setBounds(20, 70, 230, 30);
+				summaryReportSelectButton.setBounds(20, 70, 285, 30);
 				summaryReportSelectButton.setFont(primaryFont);
 				reportFrame.add(summaryReportSelectButton);
 
@@ -531,19 +529,19 @@ public class AutomationToolbox {
 						if (fileDestinationChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 							if (fileDestinationChooser.getSelectedFile().exists()) {
 								fileDestination = fileDestinationChooser.getSelectedFile().getPath() + "\\Report.xlsx";
-								fileDestinationIcon.setIcon(good);
+								fileDestinationIcon.setIcon(ready);
 								
 								if (!detailReportFilePath.equals("") && !summaryReportFilePath.equals("")) {
 									generateFileButton.setEnabled(true);
 								}
 							} else {
-								JOptionPane.showMessageDialog(null, "Invalid selection.", "Failure", 0, bad);
+								JOptionPane.showMessageDialog(null, "Invalid selection.", "Failure", 0, notReady);
 							}
 						}
 					}
 				});
 				fileDestinationSelectButton.setText("Select the file destination");
-				fileDestinationSelectButton.setBounds(20, 120, 230, 30);
+				fileDestinationSelectButton.setBounds(20, 120, 285, 30);
 				fileDestinationSelectButton.setFont(primaryFont);
 				reportFrame.add(fileDestinationSelectButton);
 
@@ -808,7 +806,7 @@ public class AutomationToolbox {
 							reportFrame.dispose();
 
 							String message = "Report.xlsx was successfully created.";
-							JOptionPane.showMessageDialog(null, message, "Success", 0, good);
+							JOptionPane.showMessageDialog(null, message, "Success", 0, ready);
 						} catch (Exception ex) {
 							String message = "Failed to generate the file.\n\n"
 									+ "Make sure that the following statements are true:\n"
@@ -821,12 +819,12 @@ public class AutomationToolbox {
 									+ "7. The scheduled date format is \"SCHD MM/DD/YYYY\"\n\n"
 									+ "If you continue to have issues, contact Jonathan Nowak at\n"
 									+ "jnowak@quantumcrossings.com or (217) 776-9115";
-							JOptionPane.showMessageDialog(null, message, "Failure", 0, bad);
+							JOptionPane.showMessageDialog(null, message, "Failure", 0, notReady);
 						}
 					}
 				});
 				generateFileButton.setText("Generate the file");
-				generateFileButton.setBounds(20, 170, 280, 30);
+				generateFileButton.setBounds(20, 170, 335, 30);
 				generateFileButton.setFont(primaryFont);
 				generateFileButton.setEnabled(false);
 				reportFrame.add(generateFileButton);
@@ -834,7 +832,7 @@ public class AutomationToolbox {
 			}
 		});
 		reportButton.setText("Preventative Maintenance Report Creation");
-		reportButton.setBounds(70, 70, 270, 30);
+		reportButton.setBounds(70, 70, 330, 30);
 		reportButton.setFont(primaryFont);
 		mainFrame.add(reportButton);
 		mainFrame.setVisible(true);
