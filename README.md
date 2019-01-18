@@ -6,7 +6,7 @@ A collection of two tools: a preventative maintenance PDF creation tool and a pr
 
 A minimum [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) version of 1.8.0 is required to run AutomationToolbox.exe
 
-**Using the preventative maintenance PDF creation tool**
+### Using the preventative maintenance PDF creation tool
 
 1. Run Automation Toolbox.exe
 2. Click the Preventative Maintenance PDF Creation button
@@ -16,7 +16,7 @@ A minimum [Java Runtime Environment](http://www.oracle.com/technetwork/java/java
 6. Type a password to protect the PDF with
 7. Click Generate the file and the PDF will be created in the file destination that you chose
 
-**Using the preventative maintenance report creation tool**
+### Using the preventative maintenance report creation tool
 
 1. Run Automation Toolbox.exe
 2. Click the Preventative Maintenance Report Creation button
