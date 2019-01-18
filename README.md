@@ -2,6 +2,10 @@
 
 A collection of two tools: a preventative maintenance PDF creation tool and a preventative maintenance report creation tool
 
+### Prerequisites
+
+A minimum [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) version of 1.8.0 is required to run AutomationToolbox.exe
+
 **Using the preventative maintenance PDF creation tool**
 
 1. Run Automation Toolbox.exe
@@ -20,10 +24,6 @@ A collection of two tools: a preventative maintenance PDF creation tool and a pr
 4. Click Select the summary report and choose Summary Report.csv from Test Files.zip
 5. Click Select the file destination and choose where you would like to save the output
 6. Click Generate the file and Report.xlsx will be created in the file destination that you chose
-
-### Prerequisites
-
-A minimum [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) version of 1.8.0 is required to run AutomationToolbox.exe
 
 ### Built With
 
