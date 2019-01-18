@@ -23,7 +23,7 @@ A collection of two tools: a preventative maintenance PDF creation tool and a pr
 
 ### Prerequisites
 
-A minimum Java Runtime Environment of 1.8.0 is required to run AutomationToolbox.exe
+A minimum [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) version of 1.8.0 is required to run AutomationToolbox.exe
 
 ### Built With
 
