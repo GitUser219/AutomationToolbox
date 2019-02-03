@@ -556,7 +556,7 @@ public class AutomationToolbox {
 
 							while (csvReader.peek() != null) {
 								String[] summaryReportRow = csvReader.readNext();
-								String[] reportDataRow = new String[11];
+								String[] reportDataRow = new String[12];
 
 								if (!summaryReportRow[12].equals("QC")) {
 									reportDataRow[0] = summaryReportRow[0];
@@ -584,12 +584,13 @@ public class AutomationToolbox {
 
 							while (csvReader.peek() != null) {
 								String[] detailReportRow = csvReader.readNext();
-								String[] detailDataRow = new String[4];
+								String[] detailDataRow = new String[5];
 
 								detailDataRow[0] = detailReportRow[1];
 								detailDataRow[1] = detailReportRow[4];
 								detailDataRow[2] = detailReportRow[13];
 								detailDataRow[3] = detailReportRow[15];
+								detailDataRow[4] = detailReportRow[14];
 
 								detailData.add(detailDataRow);
 							}
@@ -609,6 +610,7 @@ public class AutomationToolbox {
 									if (reportData.get(i)[1].equals(detailData.get(j)[1])) {
 										reportData.get(i)[9] = detailData.get(j)[0];
 										String update = detailData.get(j)[3];
+										reportData.get(i)[11] = detailData.get(j)[4];
 										
 										if (!detailData.get(j)[2].equals("Initial") && !update.equals("Work Order printed.")) {
 											reportData.get(i)[7] = reportData.get(i)[7] + "\n\n[" + detailData.get(j)[2] + "]\n" + update;
@@ -647,27 +649,28 @@ public class AutomationToolbox {
 							
 							Row headerRow = sheet.createRow(0);
 
-							for (int i = 0; i < 16; i++) {
+							for (int i = 0; i < 17; i++) {
 								Cell headerCell = headerRow.createCell(i);
 								String headerCellValue = "";
 
 								switch (i) {
-									case 0: headerCellValue = "OpCo";                break;
-									case 1: headerCellValue = "Work Status";         break;
-									case 2: headerCellValue = "JIRA Status";         break;
-									case 3: headerCellValue = "Site Type";           break;
-									case 4: headerCellValue = "Location";            break;
-									case 5: headerCellValue = "System";              break;
-									case 6: headerCellValue = "SIT Number";          break;
-									case 7: headerCellValue = "Date Received";       break;
-									case 8: headerCellValue = "Issue";               break;
-									case 9: headerCellValue = "Date Completed";      break;
-									case 10: headerCellValue = "Days Open";          break;
-									case 11: headerCellValue = "Comments";           break;
-									case 12: headerCellValue = "Request ID";         break;
-									case 13: headerCellValue = "Urgency";            break;
-									case 14: headerCellValue = "Scheduled Date";     break;
-									case 15: headerCellValue = "Run Date: " + today; break;
+									case 0: headerCellValue = "OpCo";                    break;
+									case 1: headerCellValue = "Work Status";             break;
+									case 2: headerCellValue = "JIRA Status";             break;
+									case 3: headerCellValue = "Site Type";               break;
+									case 4: headerCellValue = "Location";                break;
+									case 5: headerCellValue = "System";                  break;
+									case 6: headerCellValue = "SIT Number";              break;
+									case 7: headerCellValue = "Date Received";           break;
+									case 8: headerCellValue = "Issue";                   break;
+									case 9: headerCellValue = "Date Completed";          break;
+									case 10: headerCellValue = "Days Open";              break;
+									case 11: headerCellValue = "Comments";               break;
+									case 12: headerCellValue = "Request ID";             break;
+									case 13: headerCellValue = "Urgency";                break;
+									case 14: headerCellValue = "Scheduled Date";         break;
+									case 15: headerCellValue = "Last Updated";           break;
+									case 16: headerCellValue = "Run Date: " + today;     break;
 								}
 
 								headerCell.setCellValue(headerCellValue);
@@ -704,6 +707,7 @@ public class AutomationToolbox {
 								int requestID = Integer.parseInt(reportData.get(i)[1]);
 								String urgency;
 								String scheduledDate = reportData.get(i)[10];
+								String lastUpdateDate = reportData.get(i)[11].substring(0, reportData.get(i)[11].indexOf(" "));
 
 								if (reportData.get(i)[9].contains("-")) {
 									opCo = reportData.get(i)[9].substring(0, reportData.get(i)[9].indexOf("-") - 1);
@@ -760,8 +764,22 @@ public class AutomationToolbox {
 								} else {
 									daysOpen = TimeUnit.DAYS.convert(f.parse(dateCompleted).getTime() - f.parse(dateOpened).getTime(), TimeUnit.MILLISECONDS);
 								}
-
-								for (int j = 0; j < 15; j++) {
+								
+								year = lastUpdateDate.substring(lastUpdateDate.lastIndexOf("/") + 1);
+								month = lastUpdateDate.substring(0, lastUpdateDate.indexOf("/"));
+								day = lastUpdateDate.substring(lastUpdateDate.indexOf("/") + 1, lastUpdateDate.lastIndexOf("/"));
+								
+								if (month.length() == 1) {
+									month = "0" + month;
+								}
+								if (day.length() == 1) {
+									day = "0" + day;
+								}
+								
+								Long daysSince = TimeUnit.DAYS.convert(f.parse(today).getTime() - f.parse(month + "/" + day + "/" + year).getTime(), TimeUnit.MILLISECONDS);
+								String lastUpdated = Long.toString(daysSince) + " days ago on " + lastUpdateDate;
+								
+								for (int j = 0; j < 16; j++) {
 									Cell cell = reportRow.createCell(j);
 									cell.setCellStyle(primaryStyle);
 
@@ -783,11 +801,12 @@ public class AutomationToolbox {
 											     cell.setCellValue(requestID);     break;
 										case 13: cell.setCellValue(urgency);       break;
 										case 14: cell.setCellValue(scheduledDate); break;
+										case 15: cell.setCellValue(lastUpdated);   break;
 									}
 								}
 							}
 
-							for (int i = 0; i < 16; i++) {
+							for (int i = 0; i < 17; i++) {
 								if (i == 8) {
 									sheet.setColumnWidth(8, 1800);
 								} else if (i == 11) {
@@ -816,9 +835,7 @@ public class AutomationToolbox {
 									+ "4. The CSV files are raw exports from 360 Facility\n"
 									+ "5. The CSV files have not been modified by another program\n"
 									+ "6. You have selected the correct CSV files\n"
-									+ "7. The scheduled date format is \"SCHD MM/DD/YYYY\"\n\n"
-									+ "If you continue to have issues, contact Jonathan Nowak at\n"
-									+ "jnowak@quantumcrossings.com or (217) 776-9115";
+									+ "7. The scheduled date format is \"SCHD MM/DD/YYYY\"";
 							JOptionPane.showMessageDialog(null, message, "Failure", 0, notReady);
 						}
 					}
